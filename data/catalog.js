@@ -134,7 +134,7 @@ export const PRODUCTS = [
     featured: false,
     active: true,
     description: "Set of chiseled rock coasters with natural texture and durable construction.",
-    image: "./assets/products/slate-sample.svg",
+    image: "./assets/products/coaster-sample.jpeg",
     previewShape: "square",
     bulkTiers: [],
     optionGroups: [
