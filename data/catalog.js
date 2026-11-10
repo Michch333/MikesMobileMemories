@@ -94,22 +94,23 @@ export const PRODUCTS = [
     ]
   },
   {
-    id: "acrylic-photo-block",
-    name: "Acrylic Photo Magnet",
+    id: "custom-magnet",
+    name: "Custom Photo Magnet",
     category: "Home & Desk Decor",
-    basePrice: 15.00,
-    featured: false,
+    basePrice: 8.00,
+    featured: true,
     active: true,
-    description: "Acrylic photo block with custom UV printed photo / design. Comes with a strong magnet for easy display on any metal surface.",
-    image: "./assets/products/acrylic-sample.svg",
+    description: "Custom magnet of a photo / design of your choice! Comes with a strong magnet that can hold up on any metal surface.",
+    image: "./assets/products/magnet-sample.jpeg",
     previewShape: "rect",
     bulkTiers: [
-      { minQty: 5, discountPerUnit: 3.00 }
+      { minQty: 5, discountPerUnit: 2.00 },
+      { minQty: 25, discountPerUnit: 5 }
     ],
     optionGroups: [
       {
         id: "dimensions",
-        label: "Block Size",
+        label: "Size/Type",
         choices: [
           { label: "2\" x 2\" Square", priceMod: 0 },
           { label: "3\" x 3\" Round", priceMod: 1.00 },
