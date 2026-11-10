@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mike's Mobile Memories | Custom UV Printed Keepsakes & Awards</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-badge">UV PRINT STUDIO</span>
+        <h1>Mike's Mobile Memories</h1>
+        <p class="tagline">Custom UV-Printed Keepsakes, Medallions & Decor — Detroit, MI</p>
+      </div>
+      <div class="header-actions">
+        <button id="toggle-setup-btn" class="secondary-btn" type="button">Form Setup Guide</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Collapsible Setup Helper Banner for Mike -->
+  <section id="setup-guide-drawer" class="setup-drawer hidden">
+    <div class="container">
+      <div class="setup-card">
+        <div class="setup-header">
+          <h2>Universal Google Form Setup Guide</h2>
+          <button id="close-setup-btn" class="close-btn" type="button">&times;</button>
+        </div>
+        <p>This storefront uses a <strong>Universal 5-Field Mapping Strategy</strong>. Add new products in <code>data/catalog.js</code> anytime without ever editing your Google Form or HTML.</p>
+        <ol class="setup-steps">
+          <li>Create a Google Form with 5 <strong>Short Answer</strong> questions at the top: <em>Selected Product</em>, <em>Selected Options / Specs</em>, <em>Quantity</em>, <em>Estimated Price Summary</em>, and <em>Custom Notes</em>.</li>
+          <li>Add a <strong>File Upload</strong> question below those so the customer can attach their high-res artwork, plus their Name, Email, and Phone.</li>
+          <li>In your Google Form editor, click the <strong>three dots (top right) &rarr; Get pre-filled link</strong>, type dummy text into the 5 fields, click <strong>Get Link</strong>, and copy the <code>entry.XXXXXXX</code> IDs into <code>data/config.js</code>.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <main class="container main-layout">
+    <!-- Left Column: Product Catalog -->
+    <section class="catalog-section">
+      <div class="section-header">
+        <h2>1. Choose a Product</h2>
+        <div id="category-filters" class="filter-bar"></div>
+      </div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <!-- Right Column: Sticky Interactive Customizer & Order Builder -->
+    <aside class="customizer-sidebar">
+      <div class="customizer-card">
+        <div class="customizer-header">
+          <span class="step-label">2. Customize &amp; Preview</span>
+          <h2 id="customizer-title">Select a Product</h2>
+          <p id="customizer-desc" class="customizer-desc"></p>
+        </div>
+
+        <!-- Live Photo Preview Frame -->
+        <div class="preview-stage">
+          <div id="artwork-preview-frame" class="preview-frame shape-circle">
+            <img id="preview-img" src="" alt="Customer artwork preview" style="display: none;">
+            <div id="preview-placeholder" class="preview-placeholder">
+              <span class="preview-icon">&#128247;</span>
+              <span id="preview-shape-label">Upload a photo below to preview framing</span>
+            </div>
+          </div>
+          <div class="file-upload-wrapper">
+            <label for="photo-upload" class="upload-label">
+              <span>Test Your Photo / Artwork Framing</span>
+              <input type="file" id="photo-upload" accept="image/*">
+            </label>
+            <button type="button" id="clear-photo-btn" class="text-btn" style="display: none;">Clear Photo</button>
+          </div>
+          <p class="upload-hint">Note: Because Google Forms requires secure direct uploads, you will attach this file inside the checkout form on the next screen.</p>
+        </div>
+
+        <!-- Dynamic Option Groups Injected from data/catalog.js -->
+        <div id="dynamic-options-container" class="options-container"></div>
+
+        <!-- Quantity & Custom Notes -->
+        <div class="order-inputs">
+          <div class="input-group qty-row">
+            <div>
+              <label for="qty-input">Quantity</label>
+              <input type="number" id="qty-input" min="1" max="500" value="1">
+            </div>
+            <div id="bulk-tiers-hint" class="bulk-tiers-hint"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="custom-notes">Custom Text / Engraving / Design Instructions</label>
+            <textarea id="custom-notes" rows="2" placeholder="E.g., Team name, player # or layout notes..."></textarea>
+          </div>
+        </div>
+
+        <!-- Live Pricing Breakdown with 6% MI Sales Tax -->
+        <div class="pricing-box">
+          <div id="bulk-discount-badge" class="discount-badge" style="display: none;"></div>
+          <div class="price-row">
+            <span>Unit Price:</span>
+            <strong id="unit-price-val">$0.00</strong>
+          </div>
+          <div class="price-row">
+            <span>Subtotal (<span id="summary-qty">1</span>x):</span>
+            <span id="subtotal-val">$0.00</span>
+          </div>
+          <div class="price-row">
+            <span>Michigan Sales Tax (6%):</span>
+            <span id="tax-val">$0.00</span>
+          </div>
+          <div class="price-row total-row">
+            <span>Estimated Total:</span>
+            <strong id="total-val">$0.00</strong>
+          </div>
+        </div>
+
+        <button type="button" id="proceed-checkout-btn" class="checkout-btn">
+          Proceed to Order Form &amp; Attach Artwork &rarr;
+        </button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="footer-year">2026</span> Mike's Mobile Memories LLC &bull; Detroit, Michigan</p>
+      <p>Questions or bulk league inquiries? Email <a href="mailto:MikesMobileMemories@gmail.com">MikesMobileMemories@gmail.com</a> or call (313) 403-6784</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
